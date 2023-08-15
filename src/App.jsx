@@ -4,11 +4,12 @@ import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
 import { Sidebar } from './components'
+import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
 
 function App() {
-  const activeMenu = true
+  const { activeMenu } = useStateContext()
 
   return (
     <div>
