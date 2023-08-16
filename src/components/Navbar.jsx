@@ -17,18 +17,38 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
         >
             <span
                 className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
-                style={{ background: dotColor }} >
-                {icon}
-            </span>
+                style={{ background: dotColor }} />
+            {icon}
         </button>
     </TooltipComponent>
 )
 
 const Navbar = () => {
     const {
-        activeMenu, setActiveMenu,
+        activeMenu, setActiveMenu, screenSize, setScreenSize,
         handleClick, isClicked, setIsClicked,
     } = useStateContext()
+
+    useEffect(() => {
+        // Check screen size
+        const handleResize = () => setScreenSize(window.innerWidth)
+        // Set the screen size to the window size
+        window.addEventListener('resize', handleResize)
+        handleResize()
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    // Avoid sidebar to open when in small windows
+    useEffect(() => {
+        if (screenSize <= 900) {
+            // Sidebar close
+            setActiveMenu(false)
+        } else {
+            // Sidebar open
+            setActiveMenu(true)
+        }
+        // Always run when screenSize changes
+    }, [screenSize])
 
     return (
         <div className='flex justify-between p-2 md:ml-6 md:mr-6 relative' >
