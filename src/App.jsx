@@ -8,6 +8,7 @@ import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
 import Navbar from './components/Navbar'
+import Ecommerce from './pages/Ecommerce'
 
 function App() {
   const { activeMenu } = useStateContext()
@@ -29,53 +30,56 @@ function App() {
               </button>
             </TooltipComponent>
           </div>
+
+
+          {/* SIDEBAR  */}
           {activeMenu ? (
-            <div
-              className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'
-            >
+            <div className='w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white'>
               <Sidebar />
             </div>
           ) : (
-            <div
-              className='w-0 dark:bg-secondary-dark-bg'
-            >
+            <div className='w-0 dark:bg-secondary-dark-bg'>
               <Sidebar />
             </div>
           )}
+
+
           <div
-            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen 
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full 
             ${activeMenu ? `md:ml-72` : 'flex-2'}
             `}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
+
+            </div>
+
+            <div>
+              <Routes>
+                {/* Dashboard  */}
+                <Route path='/' element={<Ecommerce />} />
+                <Route path='/ecommerce' element={<Ecommerce />} />
+
+                {/* Pages  */}
+                <Route path='/orders' element="ECommerce" />
+                <Route path='/employees' element="ECommerce" />
+                <Route path='/customers' element="ECommerce" />
+
+                {/* Apps  */}
+                <Route path='/kandan' element="kanban" />
+                <Route path='/editor' element="Editor" />
+                <Route path='/calendar' element="Editor" />
+                <Route path='/color-picker' element="Editor" />
+
+                {/* Charts  */}
+                <Route path='/line' element="Editor" />
+                <Route path='/area' element="Editor" />
+                <Route path='/bar' element="Editor" />
+                <Route path='/pie' element="Editor" />
+
+              </Routes>
             </div>
           </div>
-        </div>
-        <div>
-          <Routes>
-            {/* Dashboard  */}
-            <Route path='/' element="ECommerce" />
-            <Route path='/ecommerce' element="ECommerce" />
-
-            {/* Pages  */}
-            <Route path='/orders' element="ECommerce" />
-            <Route path='/employees' element="ECommerce" />
-            <Route path='/customers' element="ECommerce" />
-
-            {/* Apps  */}
-            <Route path='/kandan' element="kanban" />
-            <Route path='/editor' element="Editor" />
-            <Route path='/calendar' element="Editor" />
-            <Route path='/color-picker' element="Editor" />
-
-            {/* Charts  */}
-            <Route path='/line' element="Editor" />
-            <Route path='/area' element="Editor" />
-            <Route path='/bar' element="Editor" />
-            <Route path='/pie' element="Editor" />
-
-          </Routes>
         </div>
       </BrowserRouter >
     </div >
