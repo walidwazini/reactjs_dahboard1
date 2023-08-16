@@ -7,6 +7,7 @@ import { Sidebar } from './components'
 import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
   const { activeMenu } = useStateContext()
@@ -14,7 +15,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className='flex realtive dark:bg-main-dark-bg' >
+        <div className='flex relative dark:bg-main-dark-bg bg-main-bg' >
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }} >
             <TooltipComponent
               content='Settings' position='Top'
@@ -46,7 +47,9 @@ function App() {
             ${activeMenu ? `md:ml-72` : 'flex-2'}
             `}
           >
-            Navbar
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+              <Navbar />
+            </div>
           </div>
         </div>
         <div>
