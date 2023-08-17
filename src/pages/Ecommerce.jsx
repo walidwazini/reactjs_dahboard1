@@ -15,7 +15,7 @@ import {
 const Ecommerce = () => {
 	return (
 		// <div className="mt-24 ">
-		<div className="mt-24 w-full h-full bg-red-700">
+		<div className="mt-24 w-full h-full bg-[#223f6b]">
 			<div className="flex flex-wrap lg:flex-nowrap justify-center ">
 				<div className={`bg-white dark:text-gray-200 dark:bg-secondary-dark-bg 
 				h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 
@@ -28,7 +28,7 @@ const Ecommerce = () => {
 					</div>
 					<div className='mt-6' >
 						<Button
-							color={'white'} bgColor={'red'}
+							color={'white'} bgColor={'#223f6b'}
 							text='Download' borderRadius={'10px'} size={'md'}
 						/>
 					</div>
@@ -110,7 +110,7 @@ const Ecommerce = () => {
 							</div>
 							<div className='mt-10' >
 								<Button
-									color={'white'} bgColor={'blue'}
+									color={'white'} bgColor={'#223f6b'}
 									borderRadius={'10px'}
 									text={'Download Report'}
 								/>
