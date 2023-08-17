@@ -9,7 +9,7 @@ import { useStateContext } from '../contexts/ContextProvider';
 import product9 from '../data/product9.jpg';
 import {
 	Button,
-	Sparkline,
+	Sparkline, Stacked
 } from '../components';
 
 const Ecommerce = () => {
@@ -113,16 +113,15 @@ const Ecommerce = () => {
 									color={'white'} bgColor={'blue'}
 									borderRadius={'10px'}
 									text={'Download Report'}
-
 								/>
 							</div>
 						</div>
 						{/* STACKED CHART  */}
 						<div>
-							
+							<Stacked
+								width='320px' height={"360px"}
+							/>
 						</div>
-
-						
 					</div>
 				</div>
 			</div>
