@@ -9,7 +9,8 @@ import { useStateContext } from './contexts/ContextProvider'
 import './App.css'
 import Navbar from './components/Navbar'
 import { 
-  Orders, Ecommerce, Employees, Customers,
+  Orders, Ecommerce, Employees, Customers, 
+  Calendar, Kanban,
  } from './pages'
 
 function App() {
@@ -68,9 +69,9 @@ function App() {
                 <Route path='/customers' element={<Customers />} />
 
                 {/* Apps  */}
-                <Route path='/kandan' element="kanban" />
+                <Route path='/calendar' element={<Calendar />} />
+                <Route path='/kanban' element={<Kanban />} />
                 <Route path='/editor' element="Editor" />
-                <Route path='/calendar' element="Editor" />
                 <Route path='/color-picker' element="Editor" />
 
                 {/* Charts  */}
