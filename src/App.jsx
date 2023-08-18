@@ -8,10 +8,10 @@ import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
 import Navbar from './components/Navbar'
-import { 
-  Orders, Ecommerce, Employees, Customers, 
-  Calendar, Kanban,
- } from './pages'
+import {
+  Orders, Ecommerce, Employees, Customers,
+  Calendar, Kanban, Editor, ColorPicker
+} from './pages'
 
 function App() {
   const { activeMenu } = useStateContext()
@@ -71,8 +71,8 @@ function App() {
                 {/* Apps  */}
                 <Route path='/calendar' element={<Calendar />} />
                 <Route path='/kanban' element={<Kanban />} />
-                <Route path='/editor' element="Editor" />
-                <Route path='/color-picker' element="Editor" />
+                <Route path='/editor' element={<Editor />} />
+                <Route path='/color-picker' element={<ColorPicker />} />
 
                 {/* Charts  */}
                 <Route path='/line' element="Editor" />
