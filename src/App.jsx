@@ -8,7 +8,9 @@ import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
 import Navbar from './components/Navbar'
-import { Orders,Ecommerce } from './pages'
+import { 
+  Orders, Ecommerce, Employees, Customers,
+ } from './pages'
 
 function App() {
   const { activeMenu } = useStateContext()
@@ -62,8 +64,8 @@ function App() {
 
                 {/* Pages  */}
                 <Route path='/orders' element={<Orders />} />
-                <Route path='/employees' element="ECommerce" />
-                <Route path='/customers' element="ECommerce" />
+                <Route path='/employees' element={<Employees />} />
+                <Route path='/customers' element={<Customers />} />
 
                 {/* Apps  */}
                 <Route path='/kandan' element="kanban" />
