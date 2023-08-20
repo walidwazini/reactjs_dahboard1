@@ -3,14 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
-import { Sidebar } from './components'
+import { Sidebar, Navbar, ThemeSettings } from './components'
 import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
-import Navbar from './components/Navbar'
 import {
   Orders, Ecommerce, Employees, Customers,
-  Calendar, Kanban, Editor, ColorPicker
+  Calendar, Kanban, Editor, ColorPicker,
 } from './pages'
 
 function App() {
@@ -58,6 +57,7 @@ function App() {
             </div>
 
             <div>
+              <ThemeSettings />
               <Routes>
                 {/* Dashboard  */}
                 <Route path='/' element={<Ecommerce />} />
