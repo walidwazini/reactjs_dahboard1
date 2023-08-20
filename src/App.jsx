@@ -13,10 +13,11 @@ import {
 } from './pages'
 
 function App() {
-  const { activeMenu } = useStateContext()
+  const { activeMenu, themeSetting,
+    setThemeSetting, currentColor, currentMode } = useStateContext()
 
   return (
-    <div>
+    <div className={currentMode === 'dark' ? 'dark' : ''} >
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg bg-main-bg' >
           <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }} >
@@ -25,8 +26,9 @@ function App() {
             >
               <button
                 type='button'
+                onClick={() => setThemeSetting(true)}
                 className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white '
-                style={{ background: 'darkblue', borderRadius: '50%' }}
+                style={{ background: currentColor, borderRadius: '50%' }}
               >
                 <FiSettings />
               </button>
@@ -57,7 +59,8 @@ function App() {
             </div>
 
             <div>
-              <ThemeSettings />
+              {themeSetting && <ThemeSettings />}
+
               <Routes>
                 {/* Dashboard  */}
                 <Route path='/' element={<Ecommerce />} />

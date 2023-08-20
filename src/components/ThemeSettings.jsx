@@ -7,16 +7,17 @@ import { themeColors } from '../data/dummy'
 import { useStateContext } from '../contexts/ContextProvider'
 
 const ThemeSettings = () => {
-  const currentColor = true
+  const { setColor, setMode, currentMode, currentColor, setThemeSetting } = useStateContext()
+
   return (
     <div className='bg-half-transparent w-screen fixed nav-item top-0 right-0' >
       <div className='float-right h-screen dark:text-gray-200 bg-white
-      dark:[#484B52] w-400 ' >
+      dark:bg-[#484B52] w-400 ' >
         <div className="flex justify-between items-center p-4 ml-4">
           <p className='font-semibold text-xl ' >Settings</p>
           <button
             type='button'
-            onClick={() => { }}
+            onClick={() => setThemeSetting(false)}
             style={{ color: 'rgb(153,171,180)', borderRadius: '50%' }}
             className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray '
           >
@@ -33,8 +34,8 @@ const ThemeSettings = () => {
               name='theme'
               value={'light'}
               className='cursor-pointer'
-              onChange={() => { }}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === 'light'}
             />
             <label className='ml-2 text-md cursor-pointer' htmlFor='light' >
               Light
@@ -47,8 +48,8 @@ const ThemeSettings = () => {
               name='theme'
               value={'dark'}
               className='cursor-pointer'
-              onChange={() => { }}
-              checked={true}
+              onChange={setMode}
+              checked={currentMode === 'dark'}
             />
             <label className='ml-2 text-md cursor-pointer' htmlFor='dark' >
               Dark
@@ -68,9 +69,10 @@ const ThemeSettings = () => {
                   <button
                     className='h-10 w-10 rounded-full cursor-pointer '
                     style={{ backgroundColor: item.color }}
+                    onClick={() => setColor(item.color)}
                   >
                     <BsCheck className={`ml-2 text-2xl text-white
-                     ${currentColor ? 'block' : 'hidden'} `} />
+                     ${item.color === currentColor ? 'block' : 'hidden'} `} />
                   </button>
                 </div>
               </TooltipComponent>
