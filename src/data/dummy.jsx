@@ -666,8 +666,8 @@ export const earningData = [
         amount: '4,396',
         percentage: '+23%',
         title: 'Products',
-        iconColor: 'rgb(255, 244, 229)',
-        iconBg: 'rgb(254, 201, 15)',
+        iconColor: '#a8940d',
+        iconBg: '#f7f5bc',
         pcColor: 'green-600',
     },
     {
@@ -3228,7 +3228,7 @@ export const stackedCustomSeries = [
         yName: 'y',
         name: 'Budget',
         type: 'StackingColumn',
-        background: 'blue',
+        background: '#1eb0a6',
 
     },
 
@@ -3238,7 +3238,7 @@ export const stackedCustomSeries = [
         yName: 'y',
         name: 'Expense',
         type: 'StackingColumn',
-        background: 'red',
+        background: '#fc4293',
 
     },
 

@@ -11,12 +11,12 @@ const Sidebar = () => {
   const { activeMenu, setActiveMenu,
     screenSize, setScreenSize, currentColor, currentMode
   } = useStateContext()
+  const darkMode = currentMode === 'dark'
+	const lightMode = currentMode === 'light'
 
   const handleCloseSidebar = () => {
     // If sidebar is open but in small screen size
-    if (activeMenu && screenSize <= 900) {
-      setActiveMenu(false)
-    }
+    if (activeMenu && screenSize <= 900) setActiveMenu(false)
   }
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2'
@@ -37,7 +37,9 @@ const Sidebar = () => {
             <TooltipComponent content={'Menu'} position='BottomCenter' >
               <button type='button'
                 onClick={() => setActiveMenu((prevState) => !prevState)}
-                className='text-xl rounded-full p-3 hover:bg-light-gray mt-4 block'
+                className={`text-xl rounded-full p-3 hover:bg-light-gray  mt-4 block
+                dark:text-white dark:hover:text-slate-950 dark:hover:bg-slate-500
+                `} 
               >
                 <MdOutlineCancel />
               </button>
