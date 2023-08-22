@@ -8,8 +8,8 @@ import { useStateContext } from './contexts/ContextProvider'
 
 import './App.css'
 import {
-  Orders, Ecommerce, Employees, Customers,
-  Calendar, Kanban, Editor, ColorPicker,
+  Orders, Ecommerce, Employees, Customers, Line,
+  Calendar, Kanban, Editor, ColorPicker, Area,
 } from './pages'
 
 function App() {
@@ -78,8 +78,8 @@ function App() {
                 <Route path='/color-picker' element={<ColorPicker />} />
 
                 {/* Charts  */}
-                <Route path='/line' element="Editor" />
-                <Route path='/area' element="Editor" />
+                <Route path='/line' element={<Line />} />
+                <Route path='/area' element={<Area />} />
                 <Route path='/bar' element="Editor" />
                 <Route path='/pie' element="Editor" />
 
