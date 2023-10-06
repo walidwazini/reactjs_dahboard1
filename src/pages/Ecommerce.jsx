@@ -3,11 +3,11 @@ import { BsDot } from 'react-icons/bs';
 import { IoIosMore } from 'react-icons/io';
 import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import { earningData, SparklineAreaData, } from '../data/dummy';
+import { earningData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import {
 	Button,
-	Sparkline, Stacked
+	Sparkline, Stacked, Doughnut
 } from '../components';
 
 const Ecommerce = () => {
@@ -35,6 +35,7 @@ const Ecommerce = () => {
 						/>
 					</div>
 				</div>
+
 
 				{/* ALL CARDS */}
 				<div className='flex flex-wrap m-3 justify-center items-center gap-1' >
@@ -79,8 +80,6 @@ const Ecommerce = () => {
 							</p>
 						</div>
 					</div>
-
-
 					<div className='mt-10 flex flex-wrap justify-center gap-10 ' >
 						<div className="border-r-1 border-color m-4 pr-10 ">
 							<div>
@@ -122,6 +121,44 @@ const Ecommerce = () => {
 						<div>
 							<Stacked
 								width='320px' height={"360px"}
+							/>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div className='rounded-2xl md:w-400 p-4 m-3 ' style={{ backgroundColor: currentColor }} >
+						<div className='flex justify-between items-center ' >
+							<p className='font-semibold text-white text-2xl ' >Earnings</p>
+							<div>
+								<p className="text-2xl text-white font-semibold mt-8">RM 3,248.78</p>
+								<p className="text-gray-200">Monthly revenue</p>
+							</div>
+						</div>
+						<div className='mt-4' >
+							{/* SPARKLINE  */}
+							<Sparkline
+							type={'Column'}
+							color={'white'}
+							currentColor={currentColor}
+							id={'column-'}
+							data={SparklineAreaData}
+							height={'100px'}
+							width={'320'}
+							/>
+						</div>
+					</div>
+					<div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+						<div>
+							<p className="text-2xl font-semibold ">RM 9,246</p>
+							<p className="text-gray-400">Yearly sales</p>
+						</div>
+
+						<div className="w-40">
+							<Doughnut
+								id='pie-chart'
+								data={ecomPieChartData}
+								legendVisiblity={false}
+								height={'160px'}
 							/>
 						</div>
 					</div>
